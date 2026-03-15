@@ -17,7 +17,7 @@ A modern, minimalist portfolio website showcasing my work as a Product Manager.
 
 ## Live Site
 
-Visit the live site at: [Your GitHub Pages URL]
+Visit the live site at: [https://ayushkabra.github.io/Portfolio_Ayushkabra/](https://ayushkabra.github.io/Portfolio_Ayushkabra/)
 
 ## Local Development
 
