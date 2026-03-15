@@ -208,8 +208,10 @@
     font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.02em;
-    align-self: flex-start;
-    margin-top: 8px;
+    position: absolute;
+    left: 48px;
+    bottom: 56px;
+    z-index: 5;
   }
   .dot {
     width: 6px; height: 6px;
@@ -521,6 +523,12 @@
     .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; gap: 48px; }
     .hero-visual { align-items: flex-start; }
     .hero-card { max-width: 100%; }
+    .role-badge {
+      left: 24px;
+      right: 24px;
+      bottom: 32px;
+      justify-content: center;
+    }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .exp-item { grid-template-columns: 1fr; gap: 8px; }
     .projects-grid { grid-template-columns: 1fr; }
