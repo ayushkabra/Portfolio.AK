@@ -422,6 +422,110 @@
     cursor: pointer;
   }
   .project-link:hover { border-color: var(--rust); }
+  .project-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  .project-actions .project-link {
+    margin-top: 0;
+  }
+  .backstory-btn {
+    border: 1px solid rgba(255,255,255,0.22);
+    background: transparent;
+    color: #D7C9BA;
+    border-radius: 100px;
+    padding: 7px 14px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: var(--sans);
+  }
+  .backstory-btn:hover {
+    border-color: rgba(196,84,26,0.8);
+    color: var(--rust);
+    background: rgba(196,84,26,0.08);
+  }
+  .backstory-btn:focus-visible {
+    outline: 2px solid var(--rust);
+    outline-offset: 2px;
+  }
+
+  /* PROJECT MODAL */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 9, 8, 0.72);
+    backdrop-filter: blur(2px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1200;
+    padding: 24px;
+  }
+  .modal-overlay.open {
+    display: flex;
+  }
+  .project-modal {
+    width: min(760px, 100%);
+    max-height: 86vh;
+    overflow: auto;
+    background: #1C1916;
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 16px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.45);
+    padding: 28px 28px 24px;
+    color: #D7C9BA;
+  }
+  .modal-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+  .modal-kicker {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rust);
+  }
+  .modal-close {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: #D7C9BA;
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .modal-close:hover {
+    border-color: var(--rust);
+    color: var(--rust);
+  }
+  .modal-title {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    margin-bottom: 16px;
+    color: var(--cream);
+  }
+  .modal-body {
+    font-size: 15px;
+    line-height: 1.85;
+    color: #B8AA9B;
+    white-space: pre-line;
+  }
   .project-status {
     display: inline-block;
     padding: 4px 10px;
@@ -549,6 +653,8 @@
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .exp-item { grid-template-columns: 1fr; gap: 8px; }
     .projects-grid { grid-template-columns: 1fr; }
+    .modal-overlay { padding: 16px; }
+    .project-modal { padding: 22px 18px 18px; }
     footer { flex-direction: column; gap: 12px; text-align: center; }
   }
 </style>
@@ -703,6 +809,9 @@
       <span class="project-status status-wip">Work in Progress</span>
       <div class="project-title">Birthday Directory</div>
       <p class="project-desc">A place where anyone can list their birthday — a small way to bring warmth and connection to a lonely world.</p>
+      <div class="project-actions">
+        <button class="backstory-btn" type="button" data-project="birthday-directory">Backstory</button>
+      </div>
     </div>
 
     <div class="project-card reveal">
@@ -710,7 +819,10 @@
       <span class="project-status status-built">Shipped</span>
       <div class="project-title">AI Hiring Suite</div>
       <p class="project-desc">An all-in-one HR tool that uses AI to structure JD creation, automate resume screening, and streamline candidate communication.</p>
-      <a href="https://ayushkabra.github.io/hireright-platform/" target="_blank" rel="noopener noreferrer" class="project-link">View live ↗</a>
+      <div class="project-actions">
+        <a href="https://ayushkabra.github.io/hireright-platform/" target="_blank" rel="noopener noreferrer" class="project-link">View live ↗</a>
+        <button class="backstory-btn" type="button" data-project="ai-hiring-suite">Backstory</button>
+      </div>
     </div>
 
     <div class="project-card reveal">
@@ -718,7 +830,10 @@
       <span class="project-status status-built">Shipped</span>
       <div class="project-title">Your Life Story</div>
       <p class="project-desc">A platform to document and share the narrative of your life — events, lessons, memories — in a structured, meaningful way. Built with Cursor.</p>
-      <a href="https://yourlifestory.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View live ↗</a>
+      <div class="project-actions">
+        <a href="https://yourlifestory.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View live ↗</a>
+        <button class="backstory-btn" type="button" data-project="your-life-story">Backstory</button>
+      </div>
     </div>
 
     <div class="project-card reveal">
@@ -726,7 +841,10 @@
       <span class="project-status status-built">Prototype</span>
       <div class="project-title">Marketing Pipeline Tool</div>
       <p class="project-desc">An internal prototype built at Agilo to streamline marketing workflows and connect teams more efficiently.</p>
-      <a href="https://lovely-bonbon-c10ca4.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View prototype ↗</a>
+      <div class="project-actions">
+        <a href="https://lovely-bonbon-c10ca4.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View prototype ↗</a>
+        <button class="backstory-btn" type="button" data-project="marketing-pipeline-tool">Backstory</button>
+      </div>
     </div>
 
     <div class="project-card reveal">
@@ -734,7 +852,10 @@
       <span class="project-status status-built">Prototype</span>
       <div class="project-title">PictoBlox Community</div>
       <p class="project-desc">A community hub for PictoBlox users — built as an internal product prototype at Agilo Research.</p>
-      <a href="https://spiffy-alfajores-0cc83f.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View prototype ↗</a>
+      <div class="project-actions">
+        <a href="https://spiffy-alfajores-0cc83f.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link">View prototype ↗</a>
+        <button class="backstory-btn" type="button" data-project="pictoblox-community">Backstory</button>
+      </div>
     </div>
 
     <div class="project-card reveal">
@@ -742,10 +863,24 @@
       <span class="project-status status-built">Shipped</span>
       <div class="project-title">Lagao Solar Platform</div>
       <p class="project-desc">My own startup — a solar aggregator simplifying adoption for users and manufacturers across India with financing, monitoring, and verified partners. <em style="font-style: italic; color: #A89F94;">(Closed down)</em></p>
+      <div class="project-actions">
+        <button class="backstory-btn" type="button" data-project="lagao-solar-platform">Backstory</button>
+      </div>
     </div>
 
   </div>
 </section>
+
+<div class="modal-overlay" id="backstoryModal" aria-hidden="true">
+  <div class="project-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-top">
+      <p class="modal-kicker">Project Backstory</p>
+      <button class="modal-close" type="button" id="modalClose" aria-label="Close backstory modal">×</button>
+    </div>
+    <h3 class="modal-title" id="modalTitle">Project Title</h3>
+    <p class="modal-body" id="modalBody"></p>
+  </div>
+</div>
 
 <!-- IDEAS -->
 <section class="ideas-section" id="ideas">
@@ -843,6 +978,69 @@
         ring.style.opacity = '0.5'; 
       }
     });
+  });
+
+  const backstoryContent = {
+    'birthday-directory': {
+      title: 'Birthday Directory',
+      body: 'I built this because birthdays can feel unexpectedly lonely. Even when people are around, many people feel unseen on that day, and as we grow older the wishes often reduce.\n\nThe idea was to create a warm community where people can exchange genuine wishes and build meaningful global connections around one simple moment: your birthday.'
+    },
+    'ai-hiring-suite': {
+      title: 'AI Hiring Suite',
+      body: 'I wanted to design a single workflow for modern hiring teams.\n\nInstead of scattered tools, this concept brings JD creation, AI-led resume screening, interview scheduling, and candidate communication into one structured platform so HR teams can move faster with better consistency.'
+    },
+    'your-life-story': {
+      title: 'Your Life Story',
+      body: 'This was my first project built with Cursor and AI-first development tools.\n\nThe vision: give people a place to preserve real life stories, anecdotes, and turning points, and eventually transform those moments into short cinematic story formats.'
+    },
+    'marketing-pipeline-tool': {
+      title: 'Marketing Pipeline Tool',
+      body: 'At work, the marketing team depended on developers even for simple in-product popups in PictoBlox.\n\nI built this prototype as an internal concept to reduce that dependency, speed up campaign iterations, and help stakeholders approve exactly what needed to be built before engineering effort started.'
+    },
+    'pictoblox-community': {
+      title: 'PictoBlox Community',
+      body: 'This came from a recurring product gap: we had scattered WhatsApp groups but no structured feedback loop directly connected to product decisions.\n\nUser interviews gave insights, but they were slower and often too polite. This prototype explored a community-led system where release feedback, real issues, and user sentiment could reach product quickly and clearly.'
+    },
+    'lagao-solar-platform': {
+      title: 'Lagao Solar Platform',
+      body: 'This was my first startup and a dream project I started with my friend Kartik Khandelwal.\n\nWe wanted to bridge the gap between manufacturers, distributors, and end users. Rooftop solar adoption felt confusing, time-consuming, and privacy-invasive for most users. Our goal was to simplify awareness, comparison, and decision-making in one trusted platform for India.'
+    }
+  };
+
+  const modalOverlay = document.getElementById('backstoryModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalBody = document.getElementById('modalBody');
+  const modalClose = document.getElementById('modalClose');
+  let lastTrigger = null;
+
+  function closeModal() {
+    modalOverlay.classList.remove('open');
+    modalOverlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastTrigger) lastTrigger.focus();
+  }
+
+  document.querySelectorAll('.backstory-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const key = btn.dataset.project;
+      const story = backstoryContent[key];
+      if (!story) return;
+      lastTrigger = btn;
+      modalTitle.textContent = story.title;
+      modalBody.textContent = story.body;
+      modalOverlay.classList.add('open');
+      modalOverlay.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      modalClose.focus();
+    });
+  });
+
+  modalClose.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', e => {
+    if (e.target === modalOverlay) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeModal();
   });
 
   // Scroll reveal
