@@ -31,32 +31,8 @@
     font-family: var(--sans);
     font-weight: 300;
     overflow-x: hidden;
-    cursor: none;
   }
 
-  /* Custom cursor */
-  .cursor {
-    width: 10px; height: 10px;
-    background: var(--rust);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s ease, width 0.2s, height 0.2s;
-    transform: translate(-50%, -50%);
-  }
-  .cursor-ring {
-    width: 36px; height: 36px;
-    border: 1.5px solid var(--rust);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: all 0.25s ease;
-    opacity: 0.5;
-  }
-  body:hover .cursor { opacity: 1; }
 
   /* NAV */
   nav {
@@ -664,8 +640,6 @@
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
 
 <nav>
   <a href="#" class="nav-logo">AK</a>
@@ -680,9 +654,9 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <p class="hero-eyebrow">Product Manager — Builder — Problem Solver</p>
+    <p class="hero-eyebrow">Product Manager — Builder — AI Tinkerer</p>
     <h1 class="hero-name">Hey, I'm<br><em>Ayush.</em></h1>
-    <p class="hero-desc">I build things that matter — turning fuzzy problems into products people actually use. 3+ years shipping SaaS, running teams, and thinking obsessively about users.</p>
+    <p class="hero-desc">I build things that matter — turning fuzzy problems into products people actually use. 3+ years shipping SaaS, running teams, and leveraging AI & automation to scale impact.</p>
     <a href="#about" class="hero-cta">
       See my work
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -723,12 +697,13 @@
     <div class="reveal">
       <p class="about-body">
         I'm a Product Manager who started in engineering, detoured into entrepreneurship (I co-founded a solar startup), and found my home in the space where <strong>user pain meets product strategy</strong>.<br><br>
-        At Agilo Research I own the full product lifecycle for a 0-to-1 STEM SaaS platform — discovery, PRDs, dev, and releases across desktop and mobile. Before that I led product at EZ Works and ran my own company, Lagao Solar.<br><br>
-        Outside work I'm constantly sketching new ideas — apps, platforms, tools. Building is just how I think.
+        At Agilo Research I own the full product lifecycle for a 0-to-1 STEM SaaS platform. I also heavily leverage AI to multiply my impact—building custom Claude agents and n8n automation workflows to power competitive research, drive market insights, and ship internal tools faster.<br><br>
+        Before this, I led product at EZ Works and ran my own company, Lagao Solar. Outside work I'm constantly sketching new ideas — apps, platforms, tools. Building is just how I think.
       </p>
       <div class="skills-grid">
         <span class="skill-tag">Product Strategy</span>
-        <span class="skill-tag">Roadmapping</span>
+        <span class="skill-tag">AI Agents & Claude</span>
+        <span class="skill-tag">n8n / Automation</span>
         <span class="skill-tag">User Research</span>
         <span class="skill-tag">A/B Testing</span>
         <span class="skill-tag">Agile / Sprints</span>
@@ -738,7 +713,7 @@
         <span class="skill-tag">Python</span>
         <span class="skill-tag">PRDs</span>
         <span class="skill-tag">GTM</span>
-        <span class="skill-tag">Cursor / AI Tools</span>
+        <span class="skill-tag">Cursor / AI Workflows</span>
       </div>
     </div>
   </div>
@@ -810,6 +785,19 @@
     <div class="project-card reveal">
       <div class="project-num">01</div>
       <div class="project-meta">
+        <span class="project-status status-built">Shipped</span>
+        <button class="backstory-btn" type="button" data-project="speakwell">Backstory</button>
+      </div>
+      <div class="project-title">Speakwell</div>
+      <p class="project-desc">A speech practice platform that listens, analyses, and hands you back a polished version of yourself.</p>
+      <div class="project-links-row">
+        <a href="https://ayushkabra.github.io/speakwell/" target="_blank" rel="noopener noreferrer" class="project-link">View live ↗</a>
+      </div>
+    </div>
+
+    <div class="project-card reveal">
+      <div class="project-num">02</div>
+      <div class="project-meta">
         <span class="project-status status-wip">Work in Progress</span>
         <button class="backstory-btn" type="button" data-project="birthday-directory">Backstory</button>
       </div>
@@ -818,7 +806,7 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">02</div>
+      <div class="project-num">03</div>
       <div class="project-meta">
         <span class="project-status status-built">Shipped</span>
         <button class="backstory-btn" type="button" data-project="ai-hiring-suite">Backstory</button>
@@ -831,7 +819,7 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">03</div>
+      <div class="project-num">04</div>
       <div class="project-meta">
         <span class="project-status status-built">Shipped</span>
         <button class="backstory-btn" type="button" data-project="your-life-story">Backstory</button>
@@ -844,7 +832,7 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">04</div>
+      <div class="project-num">05</div>
       <div class="project-meta">
         <span class="project-status status-built">Prototype</span>
         <button class="backstory-btn" type="button" data-project="marketing-pipeline-tool">Backstory</button>
@@ -857,7 +845,7 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">05</div>
+      <div class="project-num">06</div>
       <div class="project-meta">
         <span class="project-status status-built">Prototype</span>
         <button class="backstory-btn" type="button" data-project="pictoblox-community">Backstory</button>
@@ -870,7 +858,7 @@
     </div>
 
     <div class="project-card reveal">
-      <div class="project-num">06</div>
+      <div class="project-num">07</div>
       <div class="project-meta">
         <span class="project-status status-built">Shipped</span>
         <button class="backstory-btn" type="button" data-project="lagao-solar-platform">Backstory</button>
@@ -955,43 +943,11 @@
 </footer>
 
 <script>
-  // Custom cursor
-  const cursor = document.getElementById('cursor');
-  const ring = document.getElementById('cursorRing');
-  let mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-  function animateCursor() {
-    cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-    rx += (mx - rx) * 0.12; ry += (my - ry) *.12;
-    ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-    requestAnimationFrame(animateCursor);
-  }
-  animateCursor();
-
-  document.querySelectorAll('a, button').forEach(el => {
-    el.addEventListener('mouseenter', () => { cursor.style.transform = 'translate(-50%,-50%) scale(2)'; ring.style.transform = 'translate(-50%,-50%) scale(1.5)'; ring.style.opacity = '0.25'; });
-    el.addEventListener('mouseleave', () => { cursor.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.transform = 'translate(-50%,-50%) scale(1)'; ring.style.opacity = '0.5'; });
-  });
-  
-  // Add hover effect to project cards without interfering with links
-  document.querySelectorAll('.project-card').forEach(card => {
-    card.addEventListener('mouseenter', () => { 
-      if (!card.querySelector('.project-link')) {
-        cursor.style.transform = 'translate(-50%,-50%) scale(2)'; 
-        ring.style.transform = 'translate(-50%,-50%) scale(1.5)'; 
-        ring.style.opacity = '0.25'; 
-      }
-    });
-    card.addEventListener('mouseleave', () => { 
-      if (!card.querySelector('.project-link')) {
-        cursor.style.transform = 'translate(-50%,-50%) scale(1)'; 
-        ring.style.transform = 'translate(-50%,-50%) scale(1)'; 
-        ring.style.opacity = '0.5'; 
-      }
-    });
-  });
-
   const backstoryContent = {
+    'speakwell': {
+      title: 'Speakwell',
+      body: 'I built Speakwell because I personally found it difficult to practice for important talks like business meetings, interviews, sales pitches, or investor meetings.\n\nPracticing alone is hard enough, but picking out exactly where I went wrong or what I could improve was even harder. There was no easy way to get immediate, actionable feedback on my delivery.\n\nTo tackle that, I built this project. It\'s designed to listen, analyze, and help you refine your speech so you can walk into any important conversation feeling prepared and confident.'
+    },
     'birthday-directory': {
       title: 'Birthday Directory',
       body: 'I built Birthday Directory from a very emotional observation: birthdays are meant to be joyful, but for many people they can be one of the loneliest days of the year.\n\nEven when people are physically around, there is often a silent feeling of being forgotten. As we grow older, the excitement fades, messages reduce, and the day starts feeling less celebratory.\n\nI wanted to build a community where people can list birthdays, exchange wishes, and create meaningful connections across geographies. The intent was simple: use one small ritual to make people feel seen, valued, and less alone.'
